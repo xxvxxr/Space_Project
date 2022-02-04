@@ -1,34 +1,29 @@
-const API_URL = `http:localhost:8000`
+const API_URL = `http//:localhost:8000` // check server and make sure that this is the correct number
 async function httpGetPlanets() {
-  // TODO: Once API is ready.
-  const response = await fetch(`${API_URL}/planets`)
-  console.log(response)
-  return  await response.json()
-
+	// TODO: Once API is ready.
+	try {
+    const request = new Request(`${API_URL}`)
+		const response =  await fetch(request)
+    .then(res => res.json() )
+    .catch( err =>console.log(err))
+		return await  response
+	} catch (error) {
+		console.error(error)
+	}
 }
-
-// // httpGetPlanets requests.js:5
-// getPlanets usePlanets.js:9
-// usePlanets usePlanets.js:14
 
 async function httpGetLaunches() {
-  // TODO: Once API is ready.
-  // Load launches, sort by flight number, and return as JSON.
+	// TODO: Once API is ready.
+	// Load launches, sort by flight number, and return as JSON.
 }
 
-
 async function httpSubmitLaunch(launch) {
-  // Submit given launch data to launch system.
+	// Submit given launch data to launch system.
 }
 
 async function httpAbortLaunch(id) {
-  // TODO: Once API is ready.
-  // Delete launch with given ID.
+	// TODO: Once API is ready.
+	// Delete launch with given ID.
 }
 
-export {
-  httpGetPlanets,
-  httpGetLaunches,
-  httpSubmitLaunch,
-  httpAbortLaunch,
-};
+export { httpGetPlanets, httpGetLaunches, httpSubmitLaunch, httpAbortLaunch }
